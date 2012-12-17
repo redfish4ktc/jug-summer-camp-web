@@ -1,70 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Gilded Rose</title>
-	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title></title>
 </head>
 
-<body style="padding-top: 60px;">
-
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="brand" href="#">Gilded Rose Inn</a>
-		</div>
-	</div>
-</div>
-
-<div class="container">
-	<h1>Inventory</h1>
-
-	<div id="inventory"></div>
-
-	<a class="btn btn-primary" id="update" href="#">Update Quality</a>
-</div>
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.5.0-dev/mustache.min.js"></script>
-<script id="inventoryTemplate" type="text/template">
-	<table class="table table-striped">
-		<thead>
-		<tr>
-			<th>Item</th>
-			<th>Sell in</th>
-			<th>Quality</th>
-		</tr>
-		</thead>
-		<tbody>
-		{{#.}}
-		<tr>
-			<td>{{name}}</td>
-			<td>{{sellIn}} days</td>
-			<td>{{quality}}</td>
-		</tr>
-		{{/.}}
-		</tbody>
-	</table>
-</script>
-<script>
-var herokuUrl = 'http://rocky-lowlands-6817.herokuapp.com';
-
-function updateItems() {
-    $.getJSON(herokuUrl + '?callback=?', function (json) {
-        $('#inventory').html(Mustache.to_html($('#inventoryTemplate').html(), json));
-    });
-}
-
-$('#update').click(function() {
-	$.ajax({
-		url: herokuUrl + '/update',
-		dataType: "script"
-	}).done(updateItems);
-});
-
-updateItems();
-
-</script>
-
+<body>
+Hello World
 </body>
+
 </html>
